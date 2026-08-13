@@ -1,0 +1,58 @@
+{
+  "_comment": "Public DNS-over-HTTPS resolver endpoints, keyed by provider. SNI hostnames and IPs are stable, publicly documented endpoints as of 2026. JA3 hashes are intentionally left empty by default because they are client-stack fingerprints (browser/OS/DoH-client dependent), not server fingerprints -- populate resolver_client_ja3 locally from your own known-good traffic baseline; see docs/DETECTION_METHODOLOGY.md.",
+  "resolvers": [
+    {
+      "name": "Cloudflare",
+      "sni": ["cloudflare-dns.com", "one.one.one.one", "mozilla.cloudflare-dns.com"],
+      "ips": ["1.1.1.1", "1.0.0.1", "2606:4700:4700::1111", "2606:4700:4700::1001"]
+    },
+    {
+      "name": "Google Public DNS",
+      "sni": ["dns.google", "dns.google.com"],
+      "ips": ["8.8.8.8", "8.8.4.4", "2001:4860:4860::8888", "2001:4860:4860::8844"]
+    },
+    {
+      "name": "Quad9",
+      "sni": ["dns.quad9.net"],
+      "ips": ["9.9.9.9", "149.112.112.112", "2620:fe::fe", "2620:fe::9"]
+    },
+    {
+      "name": "NextDNS",
+      "sni": ["dns.nextdns.io"],
+      "ips": []
+    },
+    {
+      "name": "AdGuard DNS",
+      "sni": ["dns.adguard-dns.com", "dns.adguard.com"],
+      "ips": ["94.140.14.14", "94.140.15.15"]
+    },
+    {
+      "name": "CleanBrowsing",
+      "sni": ["doh.cleanbrowsing.org"],
+      "ips": ["185.228.168.9", "185.228.169.9"]
+    },
+    {
+      "name": "Mullvad DNS",
+      "sni": ["doh.mullvad.net"],
+      "ips": []
+    },
+    {
+      "name": "OpenDNS (Cisco)",
+      "sni": ["doh.opendns.com"],
+      "ips": ["146.112.41.2"]
+    },
+    {
+      "name": "Microsoft",
+      "sni": ["dns.microsoft.com"],
+      "ips": []
+    },
+    {
+      "name": "DNS.SB",
+      "sni": ["doh.dns.sb"],
+      "ips": ["185.222.222.222", "45.11.45.11"]
+    }
+  ],
+  "resolver_client_ja3": {
+    "_comment": "Optional: JA3 hashes of DoH CLIENT applications observed as benign in your own environment (e.g. cloudflared, dnscrypt-proxy, browser DoH). Left empty in the OSS release -- fill from your own baseline capture via `doh-detector baseline`."
+  }
+}
