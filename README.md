@@ -216,4 +216,4 @@ pytest -v --cov=doh_detector --cov-report=term-missing
 
 MIT — see [LICENSE](LICENSE).
 
-Last update august 
+Last update 2026
